@@ -13,6 +13,11 @@ try {
       canvas,
       parser,
       theme: "light",
+      pointeract: {
+        proControlSchema: true,
+        lockControlSchema: true,
+        zoomFactor: 0.001,
+      },
     },
     [Controls, Minimap],
   );
