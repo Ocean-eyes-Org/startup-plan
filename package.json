@@ -1,0 +1,15 @@
+{
+  "name": "ocean-eyes-startup-plan",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/prepare-canvas.mjs && vite build"
+  },
+  "dependencies": {
+    "json-canvas-viewer": "4.3.2"
+  },
+  "devDependencies": {
+    "vite": "8.3.0"
+  }
+}

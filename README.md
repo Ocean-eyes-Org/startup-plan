@@ -1,9 +1,9 @@
 # OceanEyes startup canvas
 
-Public read-only browser view of the Obsidian canvas. The page loads `OceanEyes startup.canvas` from this repository and supports pan and zoom; it does not edit the source file.
+Public, read-only browser view of the Obsidian canvas, rendered with the `json-canvas-viewer` package listed by [JSON Canvas](https://jsoncanvas.org/docs/apps/). The Obsidian-maintained [JSON Canvas repository](https://github.com/obsidianmd/jsoncanvas) provides the file format and a fixed demo, not a viewer for arbitrary `.canvas` files. This package is an independent viewer that follows the JSON Canvas specification. It is bundled locally, so the page does not load code from a third-party CDN.
 
-## Update the published canvas
+## Updating the published canvas
 
-Replace `OceanEyes startup.canvas` with the latest version from the Obsidian vault and push the change to `main`. GitHub Pages republishes the site from the repository root after a push.
+Replace `OceanEyes startup.canvas` with the latest version from the Obsidian vault and push it to `main`. GitHub Actions copies that file into the site build and deploys the updated page.
 
-The canvas file and its contents are public in this repository as well as on the site.
+The repository and Pages site are public. The repository contains the original `.canvas` file. See [third-party notices](THIRD_PARTY_NOTICES.md) for the viewer's MIT license.
