@@ -484,26 +484,8 @@
   const LEGACY_ASSIGNMENT_STORAGE_KEY = 'lets-talk-role-only-v1';
   const SOURCE_STORAGE_KEY = 'lets-talk-responses-v4';
   const SCREEN_KEYS = {
-    1:'lets-talk-role-only-v4-screen-1',
+    1:'lets-talk-role-only-v5-screen-1',
     2:'lets-talk-role-only-v4-screen-2'
-  };
-
-  const SCREEN_ONE_DEFAULT_WEIGHTS = {
-    'decision':5,
-    'product-manager':3,
-    'app-infra-maintainer':20,
-    'feature-engineer':10,
-    'uiux-designer':10,
-    'marketing-growth':0,
-    'customer-success':0
-  };
-
-  const SCREEN_ONE_DEFAULT_ASSIGNMENTS = {
-    Tonnam:['decision','product-manager','feature-engineer','uiux-designer'],
-    Yok:['app-infra-maintainer','feature-engineer'],
-    Ohm:['app-infra-maintainer'],
-    Phufa:['feature-engineer'],
-    Hope:[]
   };
 
   const SCREEN_TWO_DEFAULT_ROLE_DEFS = [
@@ -531,10 +513,10 @@
   function emptyData(){ return Object.fromEntries(participants.map(p => [p.name, []])); }
   function defaultRoles(){ return ROLE_DEFS.map(role => ({...role, weight:role.defaultWeight})); }
   function screenOneDefaultRoles(){
-    return ROLE_DEFS.map(role => ({...role, weight:SCREEN_ONE_DEFAULT_WEIGHTS[role.id] ?? role.defaultWeight}));
+    return screenTwoDefaultRoles();
   }
   function screenOneDefaultAssignments(){
-    return Object.fromEntries(participants.map(p => [p.name, [...(SCREEN_ONE_DEFAULT_ASSIGNMENTS[p.name] || [])]]));
+    return screenTwoDefaultAssignments();
   }
   function screenTwoDefaultRoles(){
     return SCREEN_TWO_DEFAULT_ROLE_DEFS.map(role => ({ ...role, weight: role.defaultWeight }));
@@ -568,7 +550,7 @@
     const assignments = screenOneDefaultAssignments();
 
     try{
-      const raw = localStorage.getItem(SCREEN_KEYS[1]);
+      const raw = localStorage.getItem(SCREEN_KEYS[1]) || localStorage.getItem(SCREEN_KEYS[2]);
       if(raw){
         const parsed = JSON.parse(raw) || {};
         roles = restoreRoles(roles, parsed);
