@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -307,7 +307,7 @@
 
   <main class="page role-screen" data-screen="1">
     <header class="hero">
-      <h1 class="title">อยากทำหน้าที่อะไร</h1>
+      <h1 class="title">What role do you want?</h1>
       <div class="subtitle">What role do you actually want?</div>
     </header>
 
@@ -333,7 +333,7 @@
 
   <main class="page role-screen hidden" data-screen="2">
     <header class="hero">
-      <h1 class="title">อยากทำหน้าที่อะไร</h1>
+      <h1 class="title">What role do you want?</h1>
       <div class="subtitle">What role do you actually want?</div>
     </header>
 
@@ -703,8 +703,8 @@
       const valid = total > 0;
       totalEl.classList.toggle('invalid', !valid);
       totalEl.innerHTML = valid
-        ? `<span class="total-dot"></span><span>รวม Weight ${total} hour · 100%</span>`
-        : `<span class="total-dot"></span><span>ต้องมี Weight อย่างน้อย 1</span>`;
+        ? `<span class="total-dot"></span><span>Total weight: ${total} ${total === 1 ? 'hour' : 'hours'} · 100%</span>`
+        : `<span class="total-dot"></span><span>Total weight must be at least 1 hour</span>`;
     }
 
     function updateDerivedPercents(){
@@ -937,7 +937,7 @@
               }).join('')}
             </div>
 
-            <div class="person-total">รวม ${formatPercent(personTotal(person.name))}%</div>
+            <div class="person-total">Total ${formatPercent(personTotal(person.name))}%</div>
           </div>
         `;
       }).join('');
