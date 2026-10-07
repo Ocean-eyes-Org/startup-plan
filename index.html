@@ -94,6 +94,7 @@
     .role-chart svg{display:block;width:100%;height:100%}
 
     .role-options{display:flex;flex-direction:column;gap:10px}
+    .role-ownership-note{margin:0 0 10px;color:var(--muted);font-size:12px;line-height:1.5;text-align:right}
     .role-option{
       display:grid;
       grid-template-columns:20px 12px minmax(0,1fr) auto auto;
@@ -307,7 +308,7 @@
 
   <main class="page role-screen" data-screen="1">
     <header class="hero">
-      <h1 class="title">What role will you be 100% responsible for</h1>
+      <h1 class="title">What role will you be 100% responsible</h1>
       <div class="subtitle">Choose your contribution for upcoming 3 months (until app Full-release)</div>
     </header>
 
@@ -317,6 +318,7 @@
           <div class="role-chart" data-role-chart aria-label="Role effort pie chart"></div>
         </div>
         <div>
+          <p class="role-ownership-note">prefer ONE PERSON PER ROLE to minimize communication overhead.</p>
           <div class="role-options" data-role-options></div>
           <div class="role-list-actions">
             <button class="add-role-button" type="button" data-add-role-button>+ Add role</button>
@@ -333,7 +335,7 @@
 
   <main class="page role-screen hidden" data-screen="2">
     <header class="hero">
-      <h1 class="title">What role will you be 100% responsible for</h1>
+      <h1 class="title">What role will you be 100% responsible</h1>
       <div class="subtitle">Choose your contribution for upcoming 3 months (until app Full-release)</div>
     </header>
 
@@ -343,6 +345,7 @@
           <div class="role-chart" data-role-chart aria-label="Role effort pie chart"></div>
         </div>
         <div>
+          <p class="role-ownership-note">prefer ONE PERSON PER ROLE to minimize communication overhead.</p>
           <div class="role-options" data-role-options></div>
           <div class="role-list-actions">
             <button class="add-role-button" type="button" data-add-role-button>+ Add role</button>
