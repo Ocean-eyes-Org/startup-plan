@@ -83,25 +83,6 @@
       line-height:1.5;
     }
 
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      margin-bottom:14px;
-    }
-    .section-title{font-size:13px;font-weight:760;color:#344054}
-    .save-state{
-      display:flex;
-      margin-left:auto;
-      align-items:center;
-      gap:6px;
-      color:var(--success);
-      font-size:11px;
-      white-space:nowrap;
-    }
-    .save-dot{width:6px;height:6px;border-radius:50%;background:var(--success)}
-
     .role-layout{
       display:grid;
       grid-template-columns:minmax(320px,480px) minmax(310px,1fr);
@@ -160,7 +141,7 @@
     }
     .role-name-input:hover{background:var(--subtle);border-color:var(--line)}
     .role-name-input:focus{background:#fff;border-color:#98a2b3;box-shadow:0 0 0 3px #f2f4f7}
-    .role-list-actions{margin-top:9px;display:flex;align-items:center}
+    .role-list-actions{margin-top:9px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
     .add-role-button{
       min-height:34px;
       padding:0 11px;
@@ -220,7 +201,7 @@
     }
     .role-derived-percent{min-width:42px;text-align:right;color:#475467}
     .role-weight-total{
-      margin-top:10px;display:flex;justify-content:flex-end;align-items:center;gap:7px;
+      display:flex;justify-content:flex-end;align-items:center;gap:7px;
       color:#344054;font-size:12px;font-weight:760;
     }
     .role-weight-total.invalid{color:#b54708}
@@ -331,10 +312,6 @@
     </header>
 
     <section aria-label="Role weights">
-      <div class="section-head">
-        <div class="save-state" data-save-state><span class="save-dot"></span><span>บันทึกอัตโนมัติ</span></div>
-      </div>
-
       <div class="role-layout">
         <div class="role-chart-card">
           <div class="role-chart" data-role-chart aria-label="Role effort pie chart"></div>
@@ -343,16 +320,13 @@
           <div class="role-options" data-role-options></div>
           <div class="role-list-actions">
             <button class="add-role-button" type="button" data-add-role-button>+ Add role</button>
+            <div class="role-weight-total" data-role-weight-total aria-live="polite"></div>
           </div>
-          <div class="role-weight-total" data-role-weight-total aria-live="polite"></div>
         </div>
       </div>
     </section>
 
-    <section class="people-section" aria-labelledby="peopleTitle-1">
-      <div class="section-head">
-        <div class="section-title" id="peopleTitle-1">คำตอบของแต่ละคน · แก้ไขได้โดยตรง</div>
-      </div>
+    <section class="people-section" aria-label="Participant role selections">
       <div class="people-list" data-people-list></div>
     </section>
   </main>
@@ -364,10 +338,6 @@
     </header>
 
     <section aria-label="Role weights">
-      <div class="section-head">
-        <div class="save-state" data-save-state><span class="save-dot"></span><span>บันทึกอัตโนมัติ</span></div>
-      </div>
-
       <div class="role-layout">
         <div class="role-chart-card">
           <div class="role-chart" data-role-chart aria-label="Role effort pie chart"></div>
@@ -376,16 +346,13 @@
           <div class="role-options" data-role-options></div>
           <div class="role-list-actions">
             <button class="add-role-button" type="button" data-add-role-button>+ Add role</button>
+            <div class="role-weight-total" data-role-weight-total aria-live="polite"></div>
           </div>
-          <div class="role-weight-total" data-role-weight-total aria-live="polite"></div>
         </div>
       </div>
     </section>
 
-    <section class="people-section" aria-labelledby="peopleTitle-2">
-      <div class="section-head">
-        <div class="section-title" id="peopleTitle-2">คำตอบของแต่ละคน · แก้ไขได้โดยตรง</div>
-      </div>
+    <section class="people-section" aria-label="Participant role selections">
       <div class="people-list" data-people-list></div>
     </section>
   </main>
@@ -627,7 +594,6 @@
     const optionsEl = root.querySelector('[data-role-options]');
     const totalEl = root.querySelector('[data-role-weight-total]');
     const peopleEl = root.querySelector('[data-people-list]');
-    const saveEl = root.querySelector('[data-save-state]');
     const addRoleButton = root.querySelector('[data-add-role-button]');
     const roles = loaded.roles;
     const roleMap = roleMapFor(roles);
@@ -635,7 +601,6 @@
     let saveTimer = null;
 
     function queueSave(){
-      saveEl.innerHTML = '<span class="save-dot" style="background:#c6cbd3"></span><span style="color:#98a2b3">กำลังบันทึก…</span>';
       clearTimeout(saveTimer);
       saveTimer = setTimeout(() => {
         localStorage.setItem(SCREEN_KEYS[screenNumber], JSON.stringify({
@@ -648,7 +613,6 @@
           })),
           roleWeights:copyWeights(roles)
         }));
-        saveEl.innerHTML = '<span class="save-dot"></span><span>บันทึกแล้ว</span>';
       }, 180);
     }
 
