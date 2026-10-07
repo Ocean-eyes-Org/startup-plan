@@ -459,14 +459,14 @@
   };
 
   const SCREEN_TWO_DEFAULT_ROLE_DEFS = [
-    { id:'decision', label:'Operation & Strategy & Leadership', defaultWeight:5, color:'#E84D5B' },
-    { id:'app-infra-maintainer-1', label:'App & Infra Maintainer 1', defaultWeight:20, color:'#FF7A3F' },
-    { id:'app-infra-maintainer-2', label:'App & Infra Maintainer 2', defaultWeight:10, color:'#F5B443' },
+    { id:'decision', label:'Operation & Strategy & Leadership', defaultWeight:10, color:'#E84D5B' },
+    { id:'app-infra-maintainer-1', label:'App & Infra Maintainer 1', defaultWeight:15, color:'#FF7A3F' },
+    { id:'app-infra-maintainer-2', label:'App & Infra Maintainer 2', defaultWeight:5, color:'#F5B443' },
     { id:'product-manager', label:'Product Manager', defaultWeight:5, color:'#67CBD0' },
     { id:'feature-engineer', label:'Feature Engineer', defaultWeight:10, color:'#48ABC6' },
     { id:'uiux-designer', label:'UI/UX Designer', defaultWeight:10, color:'#3A8DBC' },
-    { id:'marketing-growth', label:'Marketing & Growth', defaultWeight:5, color:'#2F67A6' },
-    { id:'customer-success', label:'Customer Success', defaultWeight:5, color:'#E0A800' },
+    { id:'marketing-growth', label:'Marketing & Growth', defaultWeight:3, color:'#2F67A6' },
+    { id:'customer-success', label:'Customer Success', defaultWeight:3, color:'#E0A800' },
     { id:'finance-legal', label:'Finance & Legal', defaultWeight:5, color:'#84CC16' },
     { id:'data-label-half', label:'Data Label (low leverage)', defaultWeight:3, color:'#22C55E' },
     { id:'github-cost', label:'Github cost per week [4$/(4$ for 1 hour wage)]', defaultWeight:1, color:'#7B61FF' },
@@ -474,7 +474,7 @@
   ];
 
   const SCREEN_TWO_DEFAULT_ASSIGNMENTS = {
-    Tonnam:['decision','product-manager','uiux-designer','github-cost'],
+    Tonnam:['decision','product-manager','uiux-designer','marketing-growth','customer-success','github-cost'],
     Yok:['app-infra-maintainer-2','finance-legal','server-cost'],
     Ohm:['app-infra-maintainer-1'],
     Phufa:['data-label-half'],
